@@ -246,16 +246,16 @@ var ParticlePool = (function () {
 
   // Exibe o texto com fade-in
   var textElement = document.getElementById("text");
-  textElement.innerHTML = "Eu te amo muito muito muito Kauany Soares Silva";
+  textElement.innerHTML = "Eu te amo muito muito muito Kauany,";
   setTimeout(function () {
       textElement.style.opacity = 1; // Inicia o efeito de fade-in
   }, 500); // Aparece 500ms depois de carregar
 
   // Troca o texto após 4 segundos
   setTimeout(function () {
-      textElement.innerHTML = "macaquinha linda cheirosa bonita deliciosa perfeita";
+      textElement.innerHTML = "você é minha macaquinha linda, cheirosa, bonita, deliciosa, perfeita, magnífica, gostosa.";
   }, 4000); 
   setTimeout(function () {
     textElement.innerHTML = "To com saudade, vem cá pra eu te fazer carinho.";
-}, 8000); 
+}, 10000); 
 })(document.getElementById("pinkboard"));
