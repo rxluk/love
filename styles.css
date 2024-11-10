@@ -1,3 +1,4 @@
+/* Fundo escuro para a tela */
 html, body {
   height: 100%;
   padding: 0;
@@ -11,20 +12,59 @@ canvas {
   height: 100%;
 }
 
+.start-screen {
+  position: absolute;
+  width: 100%; 
+  height: 100%; 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 2; /* Coloca a tela inicial sobre o fundo */
+}
+
+#question {
+  font-size: 30px;
+  color: #8b0b02; /* Cor vermelha para o texto "Me ama?" */
+  margin-bottom: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: #8b0b02; /* Cor de fundo dos botões */
+  color: white; /* Cor do texto dos botões */
+  border-radius: 5px;
+}
+
+/* Botão "Sim" com um fundo mais escuro */
+button#yes-button {
+  background-color: #8b0b02;
+}
+
+/* Botão "Não" com um fundo mais suave */
+button#no-button {
+  background-color: #8b0b02;
+}
+
 .box {
   position: absolute;
-  width: 100%; /* Largura adaptável ao tamanho da tela */
-  height: 100%; /* Altura adaptável ao tamanho da tela */
-  max-width: 1080px; /* Largura máxima do celular */
-  max-height: 1920px; /* Altura máxima do celular */
-  background-image: url('us.jpeg'); /* Caminho da imagem */
-  background-size: cover; /* A imagem vai cobrir toda a área */
-  background-position: center; /* Centraliza a imagem */
-  background-attachment: fixed; /* Imagem fixa ao rolar */
+  width: 100%; 
+  height: 100%; 
+  max-width: 1080px; 
+  max-height: 1920px; 
+  background-image: url('us.jpeg'); /* Definindo o fundo da tela */
+  background-size: cover; 
+  background-position: center;
+  background-attachment: fixed; 
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%); /* Centraliza a box na tela */
-  position: relative; /* Necessário para colocar a sobreposição */
+  transform: translate(-50%, -50%);
+  position: relative; 
+  display: block; /* Exibe a caixa com o fundo */
 }
 
 /* Criar a sobreposição escura */
@@ -35,50 +75,27 @@ canvas {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.7 ); /* Sobreposição preta com opacidade */
-  z-index: 1; /* Coloca a sobreposição acima da imagem */
+  background: rgba(0, 0, 0, 0.2); /* Sobreposição escura */
+  z-index: 1;
 }
 
 .text {
   position: absolute;
-  bottom: 10%; /* Ajuste para o texto ficar mais visível em celulares */
+  bottom: 10%;
   left: 50%;
   transform: translateX(-50%);
   font-family: Arial, sans-serif;
-  font-size: 24px; /* Tamanho de fonte adequado para dispositivos móveis */
-  color: #f50b02; /* Cor do texto */
+  font-size: 24px; 
+  color: #f50b02; /* Cor do texto que aparece após o clique no botão "Sim" */
   opacity: 0;
-  transition: opacity 3s ease-in-out; /* Animação de fade-in */
-  z-index: 2; /* Garante que o texto fique acima da sobreposição */
-  max-width: 90%; /* Limita a largura do texto */
-  text-align: center; /* Centraliza o texto */
+  transition: opacity 3s ease-in-out; 
+  z-index: 2;
+  max-width: 90%; 
+  text-align: center; 
 }
 
-/* Media Queries para otimizar para celulares */
-@media (max-width: 768px) {
-  .box {
-    width: 100%; /* Largura de 100% para dispositivos menores */
-    height: 100%; /* Altura de 100% para dispositivos menores */
-    max-width: 768px; /* Máximo da largura para celular */
-    max-height: 1280px; /* Máxima altura para celular */
-  }
-
-  .text {
-    font-size: 20px; /* Fonte um pouco menor em dispositivos móveis */
-    bottom: 5%; /* Ajusta a posição do texto para ser mais visível em telas pequenas */
-  }
-}
-
-@media (max-width: 480px) {
-  .box {
-    width: 100%; /* Largura 100% para celulares muito pequenos */
-    height: 100%; /* Altura 100% */
-    max-width: 480px; /* Máxima largura para celular pequeno */
-    max-height: 800px; /* Máxima altura para celular pequeno */
-  }
-
-  .text {
-    font-size: 18px; /* Tamanho de fonte ainda menor para dispositivos muito pequenos */
-    bottom: 5%; /* Ajusta a posição do texto */
-  }
+/* Classe para escurecer a caixa e esconder a imagem */
+.box.hide {
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo preto com opacidade */
+  background-image: none; /* Remove a imagem de fundo */
 }
