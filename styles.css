@@ -35,7 +35,7 @@ canvas {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 1); /* Sobreposição preta com opacidade */
+  background: rgba(0, 0, 0, 0.5); /* Sobreposição preta com opacidade */
   z-index: 1; /* Coloca a sobreposição acima da imagem */
 }
 
@@ -45,7 +45,7 @@ canvas {
   left: 50%;
   transform: translateX(-50%);
   font-family: Arial, sans-serif;
-  font-size: 12px; /* Tamanho de fonte adequado para dispositivos móveis */
+  font-size: 24px; /* Tamanho de fonte adequado para dispositivos móveis */
   color: #f50b02; /* Cor do texto */
   opacity: 0;
   transition: opacity 3s ease-in-out; /* Animação de fade-in */
