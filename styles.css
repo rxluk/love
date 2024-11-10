@@ -11,31 +11,7 @@ canvas {
   height: 100%;
 }
 
-.box {
-  position: absolute;
-  width: 1080px; /* Largura do wallpaper de celular */
-  height: 1920px; /* Altura do wallpaper de celular */
-  background-image: url('us.jpeg'); /* Caminho para a imagem */
-  background-size: cover; /* Faz a imagem cobrir o tamanho da box */
-  background-position: center; /* Centraliza a imagem */
-  background-attachment: fixed; /* Faz com que a imagem de fundo fique fixa durante o rolar */
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centraliza a box na tela */
-  position: relative; /* Necessário para colocar o overlay */
-}
 
-/* Criar a sobreposição escura */
-.box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.5); /* Sobreposição preta com opacidade */
-  z-index: 1; /* Coloca a sobreposição acima da imagem */
-}
 
 .text {
   position: absolute;
