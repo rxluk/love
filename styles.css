@@ -2,7 +2,7 @@ html, body {
   height: 100%;
   padding: 0;
   margin: 0;
-  background: rgba(0, 0, 0, 0.851); /* Mantém o fundo escuro */
+  background: rgba(0, 0, 0, 0.851); /* Fundo escuro */
 }
 
 canvas {
@@ -11,26 +11,56 @@ canvas {
   height: 100%;
 }
 
+.box {
+  position: absolute;
+  width: 100%; /* Largura adaptável ao tamanho da tela */
+  height: 100%; /* Altura adaptável ao tamanho da tela */
+  max-width: 1080px; /* Largura máxima do celular */
+  max-height: 1920px; /* Altura máxima do celular */
+  background-image: url('us.jpeg'); /* Caminho da imagem */
+  background-size: cover; /* A imagem vai cobrir toda a área */
+  background-position: center; /* Centraliza a imagem */
+  background-attachment: fixed; /* Imagem fixa ao rolar */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Centraliza a box na tela */
+  position: relative; /* Necessário para colocar a sobreposição */
+}
 
+/* Criar a sobreposição escura */
+.box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Sobreposição preta com opacidade */
+  z-index: 1; /* Coloca a sobreposição acima da imagem */
+}
 
 .text {
   position: absolute;
-  bottom: 10%; /* Ajuste para o texto ficar um pouco mais acima no celular */
+  bottom: 10%; /* Ajuste para o texto ficar mais visível em celulares */
   left: 50%;
   transform: translateX(-50%);
   font-family: Arial, sans-serif;
   font-size: 24px; /* Tamanho de fonte adequado para dispositivos móveis */
-  color: #f50b02; /* Cor do texto igual ao do coração */
+  color: #f50b02; /* Cor do texto */
   opacity: 0;
   transition: opacity 3s ease-in-out; /* Animação de fade-in */
   z-index: 2; /* Garante que o texto fique acima da sobreposição */
+  max-width: 90%; /* Limita a largura do texto */
+  text-align: center; /* Centraliza o texto */
 }
 
 /* Media Queries para otimizar para celulares */
 @media (max-width: 768px) {
   .box {
-    width: 320px; /* Largura de um celular pequeno */
-    height: 480px; /* Altura de um celular pequeno */
+    width: 100%; /* Largura de 100% para dispositivos menores */
+    height: 100%; /* Altura de 100% para dispositivos menores */
+    max-width: 768px; /* Máximo da largura para celular */
+    max-height: 1280px; /* Máxima altura para celular */
   }
 
   .text {
@@ -41,8 +71,10 @@ canvas {
 
 @media (max-width: 480px) {
   .box {
-    width: 250px; /* Largura de celulares menores */
-    height: 450px; /* Altura de celulares menores */
+    width: 100%; /* Largura 100% para celulares muito pequenos */
+    height: 100%; /* Altura 100% */
+    max-width: 480px; /* Máxima largura para celular pequeno */
+    max-height: 800px; /* Máxima altura para celular pequeno */
   }
 
   .text {
